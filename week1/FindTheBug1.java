@@ -37,7 +37,7 @@ import java.util.*;
  * -1
  */
 
-public class FindTheBugWeek1 {
+public class FindTheBug1 {
     private static int[] dx = {1, 0, -1, 0};
     private static int[] dy = {0, 1, 0, -1};
 
