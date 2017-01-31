@@ -3,6 +3,8 @@ import java.util.*;
 
 /**
  * The problem can be found here: http://www.spoj.com/problems/EZDIJKST/
+ *
+ * I'm getting WA (Wrong Answer) on the online judge. Can you figure out why?
  */
 public class FindTheBugWeek2 {
     public static class Node implements Comparable<Node> {
