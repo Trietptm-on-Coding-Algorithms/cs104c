@@ -1,100 +1,80 @@
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class ps1_student {
-
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int numTests = in.nextInt();
-        for (int i = 0; i < numTests; i++) {
-            int numNodes = in.nextInt();
-            int numEdges = in.nextInt();
-            int startNode = in.nextInt();
-            int reach = in.nextInt();
-
-            Graph graph = new Graph(numNodes);
-
-            for (int j = 0; j < numEdges; j++) {
-                graph.addEdge(in.nextInt(), in.nextInt());
-            }
-
-            System.out.println(graph.numCCs() + " " +
-                    graph.numReachable(startNode, reach));
-        }
-    }
-
-    public static class Graph {
-        private ArrayList<HashSet<Integer>> graph;
-
-        Graph(int numNodes) {
-            graph = new ArrayList<>(numNodes + 1);
-            for (int i = 0; i < numNodes + 1; i++) {
-                graph.add(new HashSet<>());
-            }
-        }
-
-        void addEdge(int u, int v) {
-            graph.get(u).add(v);
-            graph.get(v).add(u);
-        }
-
-        int numCCs() {
-            int count = 0;
-            LinkedList<Integer> toVisit = new LinkedList<>();
-            HashSet<Integer> visited = new HashSet<>();
-
-            for (int i = 1; i < graph.size(); i++) {
-                if (visited.contains(i)) {
-                    continue;
-                }
-                count++;
-                toVisit.push(i);
-                visited.add(i);
-
-                while (!toVisit.isEmpty()) {
-                    int nextNode = toVisit.pop();
-                    for (int neighbor : graph.get(nextNode)) {
-                        if (visited.contains(neighbor)) {
-                            continue;
-                        }
-                        toVisit.push(neighbor);
-                        visited.add(neighbor);
-                    }
-                }
-            }
-
-            return count;
-        }
-
-        int numReachable(int start, int reach) {
-            int count = 0;
-            HashSet<Integer> visited = new HashSet<>(); LinkedList<Tuple> toVisit = new LinkedList<>();
-
-            toVisit.add(new Tuple(start, 0));
-            visited.add(start);
-            while (!toVisit.isEmpty()) {
-                Tuple next = toVisit.remove();
-                for (int neighbor : graph.get(next.node)) {
-                    if (visited.contains(neighbor) || next.distance >= reach) {
-                        continue;
-                    }
-                    toVisit.add(new Tuple(neighbor, next.distance + 1));
-                    visited.add(neighbor);
-                }
-                count++;
-            }
-            return count;
-        }
-    }
-
-    public static class Tuple {
-        int node, distance;
-
-        Tuple(int node, int distance) {
-            this.node = node;
-            this.distance = distance;
-        }
-    }
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int trials = in.nextInt();
+		for (int a = 0; a < trials; a++) {
+			List<Integer>[] nodes = new ArrayList[in.nextInt()];
+			for (int b = 0; b < nodes.length; b++) {
+				nodes[b] = new ArrayList<>();
+			}
+			int edges = in.nextInt();
+			int startNode = in.nextInt()-1;
+			int maxDist = in.nextInt();
+			for (int b = 0; b < edges; b++) {
+				int from = in.nextInt()-1;
+				int to = in.nextInt()-1;
+				nodes[from].add(to);
+				nodes[to].add(from);
+			}
+			System.out.println(getComponents(nodes) + " " + getNodesFromStart(nodes, startNode, maxDist));
+		}
+		in.close();
+	}
+	
+	//Iterative DFS to find components
+	public static int getComponents(List<Integer>[] adjacencyList) {
+		boolean[] visitedList = new boolean[adjacencyList.length];
+		int nextCheck = 0;
+		Stack<Integer> check = new Stack<>();
+		int components = 0;
+		while (nextCheck < visitedList.length) {
+			check.push(nextCheck);
+			nextCheck++;
+			while (!check.isEmpty()) {
+				Integer subject = check.pop();
+				visitedList[subject.intValue()] = true;
+				for (Integer i: adjacencyList[subject]) {
+					if (!visitedList[i])
+						check.push(i);
+				}
+			}
+			components++;
+			while (nextCheck < visitedList.length && visitedList[nextCheck])
+				nextCheck++;
+		}
+		return components;
+	}
+	
+	//Iterative BFS to find nearby nodes
+	public static int getNodesFromStart(List<Integer>[] adjacencyList, int startNode, int distance) {
+		Queue<Integer> check = new LinkedList<>();
+		check.offer(startNode);
+		int[] dists = new int[adjacencyList.length];
+		Arrays.fill(dists, -1);
+		dists[startNode] = 0;
+		int nodes = 0;
+		
+		while (!check.isEmpty()) {
+			Integer subject = check.poll();
+			nodes++;
+			if (dists[subject] < distance) {
+				for (Integer i: adjacencyList[subject]) {
+					if (dists[i] < 0) {
+						dists[i] = dists[subject]+1;
+						check.offer(i);
+					}
+				}
+			}
+		}
+		return nodes;
+	}
 }
