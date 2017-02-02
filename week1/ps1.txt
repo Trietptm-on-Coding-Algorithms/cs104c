@@ -46,7 +46,7 @@ number of nodes reachable from your uncle's favorite start node.
 Constraints:
 
 1 <= N <= 100,000
-1 <= M <= min(200,000, N * (N - 1))
+0 <= M <= min(200,000, N * (N - 1))
 1 <= U, V, S <= N
 0 <= P <= 200,000
 
