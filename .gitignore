@@ -1,0 +1,10 @@
+# Grading scripts
+grader.py
+scraper.py
+
+# Student info
+codeforces_logs/
+students.csv
+
+# Student submissions
+week1/submissions
