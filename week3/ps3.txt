@@ -56,4 +56,4 @@ Output (write to standard out):
 
 3
 1
-N/A
+-1
