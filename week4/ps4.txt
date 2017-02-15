@@ -27,8 +27,8 @@ the net change in health the player receives by going through passageway i is
 C_i. This value may be positive, negative, or zero.
 
 Some shortcuts were taken in the development game: no state is stored about
-monsters that have been defeat, or which health packs have been used. Thus, if
-the player uses the same passageway more than once, he/she receives the
+monsters that have been defeated, or which health packs have been used. Thus,
+if the player uses the same passageway more than once, he/she receives the
 associated change in health more than once as well.
 
 As a tester, you want to know the maximum amount of health the player can have

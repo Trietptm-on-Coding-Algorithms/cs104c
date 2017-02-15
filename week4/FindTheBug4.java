@@ -7,7 +7,7 @@ import java.util.*;
  * correct output on the sample, but I'm getting a Wrong Answer (WA) when
  * uploading to the online judge!
  *
- * Problem statement can be found here: 
+ * Problem statement can be found here:
  * https://icpcarchive.ecs.baylor.edu/external/45/4509.pdf
  */
 public class FindTheBug4 {
@@ -71,7 +71,11 @@ public class FindTheBug4 {
     private static boolean relax(long[] distance) {
         boolean relaxed = false;
 
+<<<<<<< HEAD
         // There are two types of edges. 
+=======
+        // There are two types of edges.
+>>>>>>> Week 4
         // 1. Edges between adjacent cells in a grid
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
@@ -88,7 +92,11 @@ public class FindTheBug4 {
                     int newJ = j + dy[d];
 
                     // bounds check
+<<<<<<< HEAD
                     if (newI < 0 || newI >= h || newJ < 0 || newJ >= w 
+=======
+                    if (newI < 0 || newI >= h || newJ < 0 || newJ >= w
+>>>>>>> Week 4
                         || gravestones.contains(new Point(newI, newJ))) {
                         continue;
                     }
