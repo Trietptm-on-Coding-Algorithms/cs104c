@@ -1,0 +1,84 @@
+Problem Title: Road Repairs
+
+Accepted Languages:
+
+- C++, Java, Python 2.7 and 3.4
+
+Submission:
+
+- Submit a single file containing your solution to the problem. It should
+output only the answer requested (NO DEBUG OUTPUT).
+
+Grading:
+
+20% - Code Quality
+40% - Big O (efficiency)
+40% - Correctness
+
+Description:
+
+For years, Batman has been cleaning up the crime-ridden streets of Gotham city.
+The city is running low on funds and has asked Batman to actually clean the
+streets of Gotham city, using an ancient street sweeper. Batman doesn't have
+time to do this himself, so he's asked you to program his computer to do it for
+him.
+
+Gotham city can be modeled as a series of I intersections and R bi-directional
+roads, where each road connects two distinct intersection. There will be at most
+one road between any pair of intersections. The computer can start at any
+intersection and end at any intersection, but it must 
+
+Rules:
+
+The first line of input contains a single integer T, the number of test cases.
+T test cases follow.
+
+The first line of each test case contains two space-separated integers I, R,
+the number of intersections and number of roads, respectively. The following R
+lines each contain two space-separated integers U_i, V_i, denoting the endpoints
+of each road.
+
+Output:
+
+For each test case, output a space separated list of intersections, the path
+that the street sweeper takes to visit every road exactly once.
+
+
+Constraints:
+
+1 <= T <= 10
+1 <= I <= 500
+1 <= R <= 1000
+1 <= U_i, V_i <= N
+
+Input (read from standard in):
+
+1
+7 9
+1 2
+2 3
+3 4
+4 2
+4 5
+2 5
+5 6
+5 7
+4 6
+
+Output (write to standard out):
+
+1 2 3 4 2 5 4 6 5 7
+
+Explanation:
+
+These are the edges taken in order:
+
+1 -> 2
+2 -> 3
+3 -> 4
+4 -> 2
+2 -> 5
+5 -> 4
+4 -> 6
+6 -> 5
+5 -> 7
