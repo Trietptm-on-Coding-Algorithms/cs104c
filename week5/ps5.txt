@@ -26,7 +26,8 @@ him.
 Gotham city can be modeled as a series of I intersections and R bi-directional
 roads, where each road connects two distinct intersection. There will be at most
 one road between any pair of intersections. The computer can start at any
-intersection and end at any intersection, but it must 
+intersection and end at any intersection, but it must visit each edge exactly
+once.
 
 Rules:
 
@@ -42,6 +43,9 @@ Output:
 
 For each test case, output a space separated list of intersections, the path
 that the street sweeper takes to visit every road exactly once.
+
+If it is not possible for the street sweeper to visit every road exactly once,
+print "-1" on its own line, without quotes.
 
 
 Constraints:
