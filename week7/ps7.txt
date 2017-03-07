@@ -1,0 +1,64 @@
+Problem Title: Coin change?
+
+Accepted Languages:
+
+- C++, Java, Python 2.7 or 3.4
+
+Submission:
+
+- Submit a single file containing your solution to the problem. It should
+  output only the answer requested (NO DEBUG OUTPUT).
+
+Grading:
+
+20% - Code Quality
+40% - Big O (efficiency)
+40% - Correctness
+
+Description:
+
+As a cashier, you often need to make change. But this is kind of a mindless activity (the computer tells you the best way to make change for a given amount), so you get bored. One day, you start to wonder how many ways you could make change for a particular amount.
+
+A "way of making change" is a sequence C_1, C_2, ..., C_N, where C_i identifies the ith coin type given to the customer. Note that, for example, giving the customer a nickel followed by a dime is different than giving the customer a dime followed by a nickel: order matters! Note also that coin types can be repeated. So, to make 25 cents in change, you could give the customer five pennies, then a dime, and finally two nickels.
+
+You have an unlimited number of pennies (1 cent), nickels (5 cents), dimes (10 cents), and quarters (25 cents). Given an amount X (in cents), how many ways are there to make change for that amount? Since your answer may be large, print the remainder when your answer is divided by 10^9 + 7.
+
+Input:
+
+The first line of input will contain a single integer T, the number of test cases. T test cases follow.
+
+Each test case consists of a single line of input containing a single integer, X, the amount (in cents) for which you want to make change.
+
+Output:
+
+For each test case, print a single line of output containing the number of ways to make change for X. Since your answer may be large, print it modulo 10^9 + 7.
+
+Hint:
+
+Be careful when using the modulo operator! At every step of your computation, try to keep all your numbers reduced modulo 10^9 + 7.
+
+Constraints:
+
+1 <= T <= 40
+0 <= X <= 1000
+
+Sample input (read from standard in):
+
+3
+1
+4
+10
+
+Sample output (write to standard out):
+
+1
+1
+9
+
+Explanation:
+
+There is only one way to make change for 1 cent: a single penny.
+
+There is only one way to make change for 4 cents: four pennies.
+
+There are nine ways to make change for 10 cents: a dime; two nickels; ten pennies; or any of the 6 orderings of a nickel and five pennies.
