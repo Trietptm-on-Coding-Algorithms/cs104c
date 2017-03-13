@@ -11,9 +11,9 @@ def sample():
 1 0
 1 3""")
 
-# 5 2s
+# 4 2s
 def pow2():
-    for exp in range(30, 35):
+    for exp in range(31, 35):
         n = exp
         y = (1 << exp) + 1
 
@@ -61,7 +61,7 @@ def unit():
     print(' '.join(['1'] * (n + 1)))
 
 def main():
-    T = 3 + 5 + 5 + 1 + 1 + 1
+    T = 3 + 4 + 5 + 1 + 1 + 1 + 1
     print(T)
     sample()
     pow2()
