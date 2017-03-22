@@ -71,7 +71,7 @@ Sample output (write to standard out):
 5
 16.6
 
-90 150 105 166.67
+90 150 105.00 166.67
 
 Explanation:
 
