@@ -1,0 +1,81 @@
+Problem Title: Knapsack Exploration
+
+Accepted Languages:
+
+- C++, Java, Python 2.7 or 3.4
+
+Submission:
+
+- Submit a single file containing your solution to the problem. It should
+  output only the answer requested (NO DEBUG OUTPUT).
+
+Grading:
+
+20% - Code Quality
+40% - Big O (efficiency)
+40% - Correctness
+
+Description:
+
+It's a rough time to be a jewel thief. You're planning to break into this
+jewelry store, but as always, your burlap sack is limited in how much weight it
+can carry. Each jewel has a weight and a value, and your sack cannot carry more
+weight than its capacity. You want to maximize the amount of value you can carry
+out of the jewelry store.
+
+Luckily, your henchmen in the R&D lab have been working on a pair of devices.
+The first is a cloner, which makes a perfect copy of any jewel. The second is a
+splitter, which can cut any jewel into any real valued size. Using one or both
+of these tools, what is the maximum value you can steal from the store?
+
+Input:
+
+The first line of input will contain a single integer T, the number of test cases. T test cases follow.
+
+Each test case begins with two integers N and C, the number of jewels and the capacity of your sack.
+N lines follow, each containing two space separated integers V_i and W_i, the value and weight of the
+jewel.
+
+Output:
+
+For each test case, print a single line of output containing four space separated integers.
+1. The first integer is the maximum value you can steal without using any tools
+2. The second integer is the maximum value you can steal using only the cloner
+3. The third integer is the maximum value you can steal using only the laser cutter
+4. The fourth integer is the maximum value you can steal using both the cloner and laser cutter
+
+If any of these values are decimals, print them rounded to 2 decimal places.
+Use the printf operator in Java or C++ to do this easily.
+
+Constraints:
+
+1 <= T <= 40
+1 <= N <= 1000
+1 <= C <= 1000
+1 <= V_i <= 10000
+1 <= W_i <= 10000
+
+Sample input (read from standard in):
+
+1
+4 10
+10 5
+40 4
+30 6
+50 3
+
+Sample output (write to standard out):
+
+2
+10
+5
+16.6
+
+90 150 105 166.67
+
+Explanation:
+
+Take jewels 2 and 4.
+If you can clone, clone jewel 4 3 times.
+If you can cut, take jewel 2 and 4, and cut 3 in half and take that.
+If you can cut and clone, fill your bag with jewel 4.
