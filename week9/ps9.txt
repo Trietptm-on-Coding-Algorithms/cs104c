@@ -1,0 +1,67 @@
+Problem Title: Game Show
+
+Accepted Languages:
+
+- C++, Java, Python 2.7 and 3.4
+
+Submission:
+
+- Submit a single file containing your solution to the problem. It should
+output only the answer requested (NO DEBUG OUTPUT).
+
+Grading:
+
+20% - Code Quality
+40% - Big O (efficiency)
+40% - Correctness
+
+Description:
+
+You are soon going to be one of the first contestants on a new game show called "How Many Factors?". The format of the show is as follows: in each round, the host gives the contestants a positive integer N. Contestants must hit a button and say the sum of the numbers of distinct prime factors of all the positive integers less than or equal to N. (Note that 1 has 0 prime factors, and a prime number has a single prime factor.)
+
+You are not a very moral person, so you've decided to write a program to help you cheat.
+
+Input:
+
+The first line of input contains a single integer T, the number of test cases. T test cases follow.
+
+Each test case has a single line with a single integer, N.
+
+Output:
+
+For each test case, print a single line of output containing a single integer, the sum of the numbers of distinct prime factors of all the positive integers less than or equal to N.
+
+Constraints:
+
+1 <= T <= 100
+1 <= N <= 5 * 10^6
+
+Sample Input (read from standard in):
+
+2
+1
+10
+
+Sample Output (print to standard out):
+
+0
+11
+
+Explanation:
+
+In the first round, N is 1. The only positive integer less than or equal to 1 is 1, and 1 has zero prime factors.
+
+In the second round, N is 10. Here are the distinct prime factors for each positive integer less than or equal to 10:
+
+1:  {}
+2:  {2}
+3:  {3}
+4:  {2}
+5:  {5}
+6:  {2, 3}
+7:  {7}
+8:  {2}
+9:  {3}
+10: {2, 5}
+
+So 1 has 0 distinct prime factors; 2, 3, 4, 5, 7, 8, and 9 have 1; and 6 and 10 have 2. The sum is 11.
