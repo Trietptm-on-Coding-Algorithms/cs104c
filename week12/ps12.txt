@@ -1,0 +1,92 @@
+Problem Title: Hurricane
+
+Accepted Languages:
+
+- C++, Java, Python 2.7 and 3.4
+
+Submission:
+
+- Submit a single file containing your solution to the problem. It should
+output only the answer requested (NO DEBUG OUTPUT).
+
+Grading:
+
+20% - Code Quality
+40% - Big O (efficiency)
+40% - Correctness
+
+Description:
+
+There's a hurricane headed toward Austin! You've been tasked with coordinating
+evacuation efforts at UT.
+
+The city is composed of a set of intersections and a set of road segments
+between those intersections. For this problem, all road segments are one-way
+and any number of roads can meet at an intersection. Your job is to determine
+whether it is possible for everyone at UT to get to one of the "safe"
+intersections (note that there can be many safe intersections).
+
+Each road segment can only support a certain amount of traffic (in total,
+during the whole evacuation period), and each safe intersection can only hold
+so many cars. You are going to distribute directions to each evacuee giving
+his/her exact route (which roads to take and in which order). But before you
+begin, you want to know if such an assignment is even possible: is there a way
+to give each evacuee a set of directions such that no road must handle more
+cars than its capacity and such that no safe intersection receives too many
+cars?
+
+Input:
+
+The first line of input will contain a single integer T, the number of test
+cases. T test cases follow.
+
+The first line of each test case will contain integers N, M, S, and P: the
+number of intersections, the number of road segments, the number of safe
+intersections, and the number of people that need to be evacuated,
+respectively. The intersections are numbered 1 through N; UT is located at
+intersection 1. M lines follow, describing the road segments. The ith of these
+lines contains three integers U_i, V_i, and C_i. The road segment goes from
+intersection U_i to V_i, and it can support up to C_i cars. After this are S
+lines, each describing a safe intersection. The jth of these lines contains
+two integers H_j and K_j. H_j is the intersection number of the safe
+intersection, and K_j is the number of cars that can evacuate to that safe
+intersection.
+
+Output:
+
+Your program should output T lines, one for each test case. If all the people
+at UT can evacuate (one in each car), then print "YES". Otherwise, print "NO",
+then a space, then the number of people that will need to stay at UT during
+the hurricane.
+
+Constraints:
+
+1 <= T <= 10
+2 <= N <= 100
+1 <= M <= 100
+1 <= S <= N - 1
+0 <= P <= 10000
+1 <= U_i, V_i <= N
+1 <= C_i <= 1000
+2 <= H_j <= N
+1 <= K_j <= 1000
+
+Sample Input (read from standard in):
+
+1
+4 5 1 4
+1 2 1
+1 3 1
+1 4 1
+2 4 2
+3 4 2
+4 4
+
+Sample Output (print to standard out):
+
+NO 1
+
+Explanation:
+
+Even though the safe intersection could support all 4 people that need to
+evacuate, the road network cannot get them there.
